@@ -57,8 +57,8 @@ function draw() {
 	//draws everything
 	if(slider.value() < 90) {
 		background(51, 255, 255);
-		for(let bird of birds) {
-			bird.show();
+		for(let i = 1; i < birds.length; i++) {
+			birds[i].show();
 		}
 		birds[0].show();
 
