@@ -1,7 +1,7 @@
 # Flappy Bird NEAT Machine Learning
 
 The goal of the project is to solve Flappy Bird using the Neural-evolution of augmenting topologies algorithm. I modified a pre-existing neural network JS library and created a genetic algorithm to progressively train an AI to play Flappy Bird.
-
+[Can be viewed here](https://danielbjanes.github.io/)
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
