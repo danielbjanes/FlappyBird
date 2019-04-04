@@ -16,10 +16,15 @@ function Pipe() {
   }
 
   this.show = function() {
-    noStroke();
+    stroke(1);
     fill(0, 255, 0);
     rect(this.topX, this.topY, this.pipeWidth, this.top_bottom); //top pipe
+
+    rect(this.topX - 8, this.top_bottom - 20, this.pipeWidth + 16, 20);
+
     rect(this.bottomX, this.bottomY, this.pipeWidth, 800 - this.bottomY); // bottom pipe
+    rect(this.bottomX - 8, this.bottomY, this.pipeWidth + 16, 20);
+
   }
 
 }

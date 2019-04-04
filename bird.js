@@ -15,8 +15,6 @@ class Bird {
     this.velocity = 0;
     this.dead = false;
 
-    this.isBest = false;
-
     if (brain instanceof NeuralNetwork) {
       this.brain = brain.copy();
     } else {
@@ -28,8 +26,7 @@ class Bird {
   //draws the bird
   show() {
     noStroke();
-    if(this.isBest) fill(255, 182, 193);
-    else fill(0);
+    fill(0);
     ellipse(this.x, this.y, this.birdWidth, this.birdHieght);
   }
 
@@ -48,8 +45,8 @@ class Bird {
     }
 
     //checks if the bird goes out the top
-    if(this.y < 0) {
-      this.y = 0;
+    if(this.y < 100) {
+      this.y = 100;
       this.velocity = 0;
     }
 

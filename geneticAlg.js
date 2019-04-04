@@ -1,6 +1,5 @@
 function nextGeneration() {
 
-  console.log("mutate")
   calculateFitness();
   selectBest();
 
