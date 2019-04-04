@@ -2,7 +2,7 @@ function Pipe() {
   this.topX = width;
   this.topY = 0;
 
-  this.top_bottom = Math.floor(Math.random() * (550 - 150)) + 150;
+  this.top_bottom = Math.floor(Math.random() * (550 - 350)) + 200;
   this.pipeWidth = 120;
   this.speed = 2;
   this.gap = 350;
@@ -13,11 +13,11 @@ function Pipe() {
   this.update = function() {
     this.topX -= this.speed;
     this.bottomX -= this.speed;
-
   }
 
   this.show = function() {
-    fill(255);
+    noStroke();
+    fill(0, 255, 0);
     rect(this.topX, this.topY, this.pipeWidth, this.top_bottom); //top pipe
     rect(this.bottomX, this.bottomY, this.pipeWidth, 800 - this.bottomY); // bottom pipe
   }

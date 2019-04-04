@@ -15,6 +15,8 @@ class Bird {
     this.velocity = 0;
     this.dead = false;
 
+    this.isBest = false;
+
     if (brain instanceof NeuralNetwork) {
       this.brain = brain.copy();
     } else {
@@ -25,8 +27,9 @@ class Bird {
 
   //draws the bird
   show() {
-    stroke(255);
-    fill(255, 50);
+    noStroke();
+    if(this.isBest) fill(255, 182, 193);
+    else fill(0);
     ellipse(this.x, this.y, this.birdWidth, this.birdHieght);
   }
 
@@ -42,7 +45,6 @@ class Bird {
     if( this.y >= height) {
       this.y = height;
       this.velocity = 0;
-      this.dead = true;
     }
 
     //checks if the bird goes out the top
@@ -53,18 +55,16 @@ class Bird {
 
     this.hit(pipes);
     this.checkPoints(pipes);
-    //this.show();
     this.think(pipes);
 }
 
 
   think(pipes) {
-
     //find closest pipe
     let closest = null;
     let closestDis = Infinity;
     for(let index = 0; index < pipes.length; index++) {
-      let d =  pipes[index].topX - this.x;
+      let d =  (pipes[index].topX/2 + pipes[index].pipeWidth/2) - this.x;
       if(d < closestDis && d > 0) {
         closest = pipes[index];
         closestDis = d;
@@ -75,7 +75,7 @@ class Bird {
     inputs[0] = this.y / height;
     inputs[1] = closest.top_bottom / height;
     inputs[2] = closest.bottomY / height;
-    inputs[3] = closest.topX / width;
+    inputs[3] = (closest.topX + closest.pipeWidth/2) / width;
 
     let output = this.brain.predict(inputs);
 

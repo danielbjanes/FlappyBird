@@ -54,11 +54,13 @@ function draw() {
 		}
 	}
 
+	//draws everything
 	if(slider.value() < 90) {
-		background(0);
+		background(51, 255, 255);
 		for(let bird of birds) {
 			bird.show();
 		}
+		birds[0].show();
 
 		for (let pipe of pipes) {
 			pipe.show();
