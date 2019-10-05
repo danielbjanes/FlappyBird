@@ -1,5 +1,5 @@
 const TOTAL = 300;
-
+var counter;
 var pipes = [];
 var savedBirds = [];
 var birds = [];
@@ -12,6 +12,9 @@ var generation = 0;
 
 var can;
 var slider;
+var scoreC = 0;
+var highScore = 0;
+var generation = 0;
 
 //Init canvas
 function setup() {
