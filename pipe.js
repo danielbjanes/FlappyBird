@@ -1,20 +1,24 @@
 function Pipe() {
+
+  //Location attributes
   this.topX = width;
   this.topY = 0;
-
   this.top_bottom = Math.floor(Math.random() * (550 - 350)) + 200;
   this.pipeWidth = 120;
-  this.speed = 2;
   this.gap = 350;
+
+  this.speed = 2;
 
   this.bottomX = width;
   this.bottomY = this.top_bottom + this.gap;
 
+  //Move pipes
   this.update = function() {
     this.topX -= this.speed;
     this.bottomX -= this.speed;
   }
 
+  //Draw Pipe
   this.show = function() {
     stroke(1);
     fill(0, 255, 0);

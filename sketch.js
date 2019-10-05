@@ -1,18 +1,25 @@
 const TOTAL = 300;
-var counter;
+
 var pipes = [];
 var savedBirds = [];
 var birds = [];
 var clouds = [];
-var slider;
+
+var counter;
 var scoreC = 0;
 var highScore = 0;
 var generation = 0;
 
+var can;
+var slider;
+
+//Init canvas
 function setup() {
-	background(0, 157, 0);
+	can = createCanvas(800, 800);
 	slider = createSlider(1, 100, 1);
-	createCanvas(800, 800);
+	slider.position(50, 42);
+	centerCanvas();
+	background(0, 157, 0);
 
 	for(var i = 0; i < TOTAL; i++) {
 		birds[i] = new Bird();
@@ -21,6 +28,17 @@ function setup() {
 	counter = 0;
 }
 
+function centerCanvas() {
+  let x = (windowWidth - width) / 2;
+  let y = (windowHeight - height) / 2;
+  can.position(x, y);
+}
+
+function windowResized() {
+  centerCanvas();
+}
+
+//Draw tick update for the screen
 function draw() {
 
 	for(let n = 0; n < slider.value(); n++) {
@@ -110,15 +128,18 @@ function draw() {
 	rect(0, 0, width, 100 - 12);
 
 	//speed slider
+	/*fill(128, 128, 128)
+	rect()
 	fill(255, 255, 255, 255);
-	textSize(20);
-	text("Speed", 86, 34);
-	slider.position(50, 42);
+
+	text("Speed", 86, 34);*/
 
 	//text info
-	text("Generation: " + generation, 280, 48);
-	text("Score: " + scoreC, 470, 48);
-	text("High Score: " + highScore, 610, 48);
+	fill(255, 255, 255, 255);
+	textSize(20);
+	text("Generation: " + generation, 85, 48);
+	text("Score: " + scoreC, 360, 48);
+	text("High Score: " + highScore, 570, 48);
 	fill(0);
 	textSize(12);
 	text("github.com/danielbjanes", 660,80);
